@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from langchain_ollama import OllamaLLM
+from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 import streamlit as st
@@ -18,16 +18,14 @@ prompt = ChatPromptTemplate.from_messages([
 ])
 
 
-# Streamlet framework...
+# Streamlit framework...
 st.title('Simple GenAI app with Ollama')
 input_text = st.text_input('What question do you have?')
 
-# Ollama model
-@st.cache_resource
-def load_model():
-    return OllamaLLM(model="gemma:2b")  
 
-model = load_model()
+model = ChatOllama(
+    model="gemma:2b",
+)
 output_parser = StrOutputParser()
 
 chain = prompt | model | output_parser
