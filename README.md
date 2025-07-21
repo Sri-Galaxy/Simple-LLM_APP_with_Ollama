@@ -1,4 +1,4 @@
-# GenAI Assistant with Ollama
+# GenAI Assistant with and LangChain
 
 This project is a simple web application that allows users to interact with a local open-source Large Language Model (LLM) powered by Ollama. The application is built using Streamlit and LangChain, providing an intuitive interface for generating intelligent responses to user queries.
 
